@@ -1,4 +1,4 @@
-package org.clevertec.vlad.proxy.v1;
+package org.clevertec.vlad.v2.log;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
