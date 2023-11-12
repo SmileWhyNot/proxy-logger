@@ -1,10 +1,8 @@
 package org.clevertec.vlad.proxy.v1.fortest.factory;
 
-import org.clevertec.vlad.proxy.v1.DoubleCalculatorProxyHandler;
+import org.clevertec.vlad.proxy.v1.proxy.DoubleCalculatorProxyHandler;
 import org.clevertec.vlad.proxy.v1.fortest.lib.Calculator;
 import org.clevertec.vlad.proxy.v1.fortest.lib.DoubleCalculatorImpl;
-import org.clevertec.vlad.proxy.v1.fortest.lib2.DoublePrintCalculatorImpl;
-import org.clevertec.vlad.proxy.v1.fortest.lib2.PrintCalculator;
 
 public class DoubleCalculatorFactory implements AbstractCalculatorFactory<Double>{
     @Override

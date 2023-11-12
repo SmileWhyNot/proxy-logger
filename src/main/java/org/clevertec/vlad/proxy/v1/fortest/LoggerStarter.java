@@ -10,6 +10,7 @@ public class LoggerStarter {
         AbstractCalculatorFactory<Double> calculatorFactory = new DoubleCalculatorFactory();
         Calculator<Double> calculator = calculatorFactory.createCalculator();
 
-        calculator.sum(1d, 2d);
+        System.out.println(calculator.sum(1d, 2d));
+        System.out.println(calculator.subtract(1d, 2d));
     }
 }
