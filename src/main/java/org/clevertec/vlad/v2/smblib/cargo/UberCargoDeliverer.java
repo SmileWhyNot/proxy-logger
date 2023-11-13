@@ -8,7 +8,7 @@ public class UberCargoDeliverer implements CargoDeliverer{
         System.out.println("Opening Uber app with orders...");
         System.out.println("Search for new once...");
         System.out.println("Take the marvelous order");
-        System.out.println("---------------------\n");
+        System.out.println("---------------------");
     }
 
     @Override
@@ -17,7 +17,7 @@ public class UberCargoDeliverer implements CargoDeliverer{
         System.out.println("Going to Uber warehouse...");
         System.out.println("Asks the movers to load the cargo");
         System.out.println("Draws up the order documents");
-        System.out.println("---------------------\n");
+        System.out.println("---------------------");
     }
 
     @Override
@@ -25,6 +25,6 @@ public class UberCargoDeliverer implements CargoDeliverer{
         System.out.println("---------------------");
         System.out.println("Searches for the delivery address in Uber map");
         System.out.println("Delivers cargo");
-        System.out.println("---------------------\n");
+        System.out.println("---------------------");
     }
 }

@@ -1,9 +1,13 @@
 package org.clevertec.vlad.v2.factory;
 
+import org.clevertec.vlad.v2.proxy.CabbieDelivererProxy;
 import org.clevertec.vlad.v2.proxy.CargoDelivererProxy;
 import org.clevertec.vlad.v2.proxy.ProductDelivererProxy;
 import org.clevertec.vlad.v2.proxy.factory.DelivererProxyFactoryImpl;
 import org.clevertec.vlad.v2.proxy.factory.DeliveryProxyFactory;
+import org.clevertec.vlad.v2.smblib.cabbie.CabbieDeliverer;
+import org.clevertec.vlad.v2.smblib.cabbie.UberCabbieDeliverer;
+import org.clevertec.vlad.v2.smblib.cabbie.YandexCabbieDeliverer;
 import org.clevertec.vlad.v2.smblib.cargo.CargoDeliverer;
 import org.clevertec.vlad.v2.smblib.cargo.YandexCargoDeliverer;
 import org.clevertec.vlad.v2.smblib.product.ProductDeliverer;
@@ -23,5 +27,12 @@ public class YandexFactory implements DeliveryFactory{
         DeliveryProxyFactory proxyFactory = new DelivererProxyFactoryImpl();
         ProductDelivererProxy productDelivererProxy = proxyFactory.createProductDelivererProxy(new YandexProductDeliverer());
         return new ProductDelivererProxy(productDelivererProxy.getProductDeliverer());
+    }
+
+    @Override
+    public CabbieDeliverer createCabbieDeliverer() {
+        DeliveryProxyFactory proxyFactory = new DelivererProxyFactoryImpl();
+        CabbieDelivererProxy cabbieDelivererProxy = proxyFactory.createCabbieDelivererProxy(new YandexCabbieDeliverer());
+        return new CabbieDelivererProxy(cabbieDelivererProxy.getCabbieDeliverer());
     }
 }

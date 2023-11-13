@@ -3,6 +3,7 @@ package org.clevertec.vlad.v2;
 import org.clevertec.vlad.v2.factory.DeliveryFactory;
 import org.clevertec.vlad.v2.factory.UberFactory;
 import org.clevertec.vlad.v2.factory.YandexFactory;
+import org.clevertec.vlad.v2.smblib.cabbie.CabbieDeliverer;
 import org.clevertec.vlad.v2.smblib.cargo.CargoDeliverer;
 import org.clevertec.vlad.v2.smblib.product.ProductDeliverer;
 
@@ -17,9 +18,8 @@ public class Main {
         System.out.println("""
                 
                 ===================================
-                Cargo delivery FROM Yandex and Uber
+                Cargo delivery FROM Yandex
                 ===================================
-                
                 """);
         CargoDeliverer yandexCargoDeliverer = deliveryFactory.createCargoDeliverer();
         CargoDeliverer uberCargoDeliverer = deliveryFactory1.createCargoDeliverer();
@@ -27,6 +27,13 @@ public class Main {
         yandexCargoDeliverer.takeOrder();
         yandexCargoDeliverer.loadCargo();
         yandexCargoDeliverer.deliverCargo();
+
+        System.out.println("""
+                
+                ===================================
+                Cargo delivery FROM Uber
+                ===================================
+                """);
 
         uberCargoDeliverer.takeOrder();
         uberCargoDeliverer.loadCargo();
@@ -36,9 +43,8 @@ public class Main {
         System.out.println("""
                 
                 ===================================
-                Product delivery FROM Yandex and Uber
+                Product delivery FROM Yandex
                 ===================================
-                
                 """);
         ProductDeliverer yandexProductDeliverer = deliveryFactory.createProductDeliverer();
         ProductDeliverer uberProductDeliverer = deliveryFactory1.createProductDeliverer();
@@ -48,9 +54,43 @@ public class Main {
         yandexProductDeliverer.collectProductsForOrder();
         yandexProductDeliverer.deliverOrder();
 
+        System.out.println("""
+                
+                ===================================
+                Product delivery FROM Uber
+                ===================================
+                """);
+
         uberProductDeliverer.takeOrder();
         uberProductDeliverer.visitShopsForProducts();
         uberProductDeliverer.collectProductsForOrder();
         uberProductDeliverer.deliverOrder();
+
+        // Доставка людей (такси) от Яндекса и Убера
+        System.out.println("""
+                
+                ===================================
+                Cabbie delivery FROM Yandex
+                ===================================
+                """);
+        CabbieDeliverer yandexCabbieDeliverer = deliveryFactory.createCabbieDeliverer();
+        CabbieDeliverer uberCabbieDeliverer = deliveryFactory.createCabbieDeliverer();
+
+        yandexCabbieDeliverer.searchForTaxiOrders();
+        yandexCabbieDeliverer.takeOrder();
+        yandexCabbieDeliverer.pickUpPassenger();
+        yandexCabbieDeliverer.deliverPassenger();
+
+        System.out.println("""
+                
+                ===================================
+                Cabbie delivery FROM Uber
+                ===================================
+                """);
+
+        uberCabbieDeliverer.searchForTaxiOrders();
+        uberCabbieDeliverer.takeOrder();
+        uberCabbieDeliverer.pickUpPassenger();
+        uberCabbieDeliverer.deliverPassenger();
     }
 }
