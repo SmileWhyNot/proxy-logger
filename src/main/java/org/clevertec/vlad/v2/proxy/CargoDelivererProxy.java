@@ -1,13 +1,20 @@
 package org.clevertec.vlad.v2.proxy;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.clevertec.vlad.v2.log.LogHandler;
-import org.clevertec.vlad.v2.smblib.CargoDeliverer;
+import org.clevertec.vlad.v2.smblib.cargo.CargoDeliverer;
 
 import java.lang.reflect.Method;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 public class CargoDelivererProxy implements CargoDeliverer {
 
+    private static final Logger logger = LogManager.getLogger(CargoDelivererProxy.class);
     private Map<String, List<String>> annotatedMethods = new HashMap<>();
     private final List<String> methodsWithProxy = new ArrayList<>();
     private final CargoDeliverer cargoDeliverer;
@@ -39,10 +46,10 @@ public class CargoDelivererProxy implements CargoDeliverer {
     @Override
     public void takeOrder() {
         if (methodsWithProxy.contains("takeOrder")) {
-            System.out.println("Class named: " + cargoDeliverer.getClass().getName());
-            System.out.println("Started method: takeOrder");
+            logger.info("Class named: " + cargoDeliverer.getClass().getName());
+            logger.info("Started method: takeOrder");
             cargoDeliverer.takeOrder();
-            System.out.println("Ended method: takeOrder");
+            logger.info("Ended method: takeOrder");
             return;
         }
         cargoDeliverer.takeOrder();
@@ -51,10 +58,10 @@ public class CargoDelivererProxy implements CargoDeliverer {
     @Override
     public void loadCargo() {
         if (methodsWithProxy.contains("loadCargo")) {
-            System.out.println("Class named: " + cargoDeliverer.getClass().getName());
-            System.out.println("Started method: loadCargo");
+            logger.info("Class named: " + cargoDeliverer.getClass().getName());
+            logger.info("Started method: loadCargo");
             cargoDeliverer.loadCargo();
-            System.out.println("Ended method: loadCargo");
+            logger.info("Ended method: loadCargo");
             return;
         }
         cargoDeliverer.loadCargo();
@@ -63,12 +70,16 @@ public class CargoDelivererProxy implements CargoDeliverer {
     @Override
     public void deliverCargo() {
         if (methodsWithProxy.contains("deliverCargo")) {
-            System.out.println("Class named: " + cargoDeliverer.getClass().getName());
-            System.out.println("Started method: deliverCargo");
+            logger.info("Class named: " + cargoDeliverer.getClass().getName());
+            logger.info("Started method: deliverCargo");
             cargoDeliverer.deliverCargo();
-            System.out.println("Ended method: deliverCargo");
+            logger.info("Ended method: deliverCargo");
             return;
         }
         cargoDeliverer.deliverCargo();
+    }
+
+    public CargoDeliverer getCargoDeliverer() {
+        return cargoDeliverer;
     }
 }

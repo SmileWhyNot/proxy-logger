@@ -1,10 +1,10 @@
-package org.clevertec.vlad.v2.smblib;
+package org.clevertec.vlad.v2.smblib.cargo;
 
 public class YandexCargoDeliverer implements CargoDeliverer{
     @Override
     public void takeOrder() {
         System.out.println("---------------------");
-        System.out.println("Opening app with orders...");
+        System.out.println("Opening Yandex app with orders...");
         System.out.println("Search for new once...");
         System.out.println("Take the marvelous order");
         System.out.println("---------------------");
@@ -13,7 +13,7 @@ public class YandexCargoDeliverer implements CargoDeliverer{
     @Override
     public void loadCargo() {
         System.out.println("---------------------");
-        System.out.println("Going to warehouse...");
+        System.out.println("Going to Yandex warehouse...");
         System.out.println("Asks the movers to load the cargo");
         System.out.println("Draws up the order documents");
         System.out.println("---------------------");

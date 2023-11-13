@@ -1,23 +1,23 @@
-package org.clevertec.vlad.v2.smblib;
+package org.clevertec.vlad.v2.smblib.cargo;
 
 public class UberCargoDeliverer implements CargoDeliverer{
 
     @Override
     public void takeOrder() {
         System.out.println("---------------------");
-        System.out.println("Opening app with orders...");
+        System.out.println("Opening Uber app with orders...");
         System.out.println("Search for new once...");
         System.out.println("Take the marvelous order");
-        System.out.println("---------------------");
+        System.out.println("---------------------\n");
     }
 
     @Override
     public void loadCargo() {
         System.out.println("---------------------");
-        System.out.println("Going to warehouse...");
+        System.out.println("Going to Uber warehouse...");
         System.out.println("Asks the movers to load the cargo");
         System.out.println("Draws up the order documents");
-        System.out.println("---------------------");
+        System.out.println("---------------------\n");
     }
 
     @Override
@@ -25,6 +25,6 @@ public class UberCargoDeliverer implements CargoDeliverer{
         System.out.println("---------------------");
         System.out.println("Searches for the delivery address in Uber map");
         System.out.println("Delivers cargo");
-        System.out.println("---------------------");
+        System.out.println("---------------------\n");
     }
 }

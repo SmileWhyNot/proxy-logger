@@ -1,4 +1,4 @@
-package org.clevertec.vlad.v2.smblib;
+package org.clevertec.vlad.v2.smblib.cargo;
 
 import org.clevertec.vlad.v2.log.Log;
 

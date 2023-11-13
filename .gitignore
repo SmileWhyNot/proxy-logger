@@ -40,3 +40,9 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+/.idea/sonarlint/
+/.idea/
+/gradle/
+/.idea/
+/gradlew
+/gradlew.bat
