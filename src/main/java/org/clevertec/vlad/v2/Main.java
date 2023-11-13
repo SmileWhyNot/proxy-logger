@@ -11,8 +11,8 @@ public class Main {
     public static void main(String[] args) {
         System.setProperty("log4j.configurationFile", "src/main/resources/log4j2.properties");
 
-        DeliveryFactory deliveryFactory = new YandexFactory();
-        DeliveryFactory deliveryFactory1 = new UberFactory();
+        DeliveryFactory yandexFactory = new YandexFactory();
+        DeliveryFactory uberFactory = new UberFactory();
 
         // Доставка груза от Яндекса и Убера
         System.out.println("""
@@ -21,8 +21,7 @@ public class Main {
                 Cargo delivery FROM Yandex
                 ===================================
                 """);
-        CargoDeliverer yandexCargoDeliverer = deliveryFactory.createCargoDeliverer();
-        CargoDeliverer uberCargoDeliverer = deliveryFactory1.createCargoDeliverer();
+        CargoDeliverer yandexCargoDeliverer = yandexFactory.createCargoDeliverer();
 
         yandexCargoDeliverer.takeOrder();
         yandexCargoDeliverer.loadCargo();
@@ -34,6 +33,7 @@ public class Main {
                 Cargo delivery FROM Uber
                 ===================================
                 """);
+        CargoDeliverer uberCargoDeliverer = uberFactory.createCargoDeliverer();
 
         uberCargoDeliverer.takeOrder();
         uberCargoDeliverer.loadCargo();
@@ -46,8 +46,7 @@ public class Main {
                 Product delivery FROM Yandex
                 ===================================
                 """);
-        ProductDeliverer yandexProductDeliverer = deliveryFactory.createProductDeliverer();
-        ProductDeliverer uberProductDeliverer = deliveryFactory1.createProductDeliverer();
+        ProductDeliverer yandexProductDeliverer = yandexFactory.createProductDeliverer();
 
         yandexProductDeliverer.takeOrder();
         yandexProductDeliverer.visitShopsForProducts();
@@ -60,6 +59,7 @@ public class Main {
                 Product delivery FROM Uber
                 ===================================
                 """);
+        ProductDeliverer uberProductDeliverer = uberFactory.createProductDeliverer();
 
         uberProductDeliverer.takeOrder();
         uberProductDeliverer.visitShopsForProducts();
@@ -73,8 +73,7 @@ public class Main {
                 Cabbie delivery FROM Yandex
                 ===================================
                 """);
-        CabbieDeliverer yandexCabbieDeliverer = deliveryFactory.createCabbieDeliverer();
-        CabbieDeliverer uberCabbieDeliverer = deliveryFactory.createCabbieDeliverer();
+        CabbieDeliverer yandexCabbieDeliverer = yandexFactory.createCabbieDeliverer();
 
         yandexCabbieDeliverer.searchForTaxiOrders();
         yandexCabbieDeliverer.takeOrder();
@@ -87,6 +86,7 @@ public class Main {
                 Cabbie delivery FROM Uber
                 ===================================
                 """);
+        CabbieDeliverer uberCabbieDeliverer = uberFactory.createCabbieDeliverer();
 
         uberCabbieDeliverer.searchForTaxiOrders();
         uberCabbieDeliverer.takeOrder();

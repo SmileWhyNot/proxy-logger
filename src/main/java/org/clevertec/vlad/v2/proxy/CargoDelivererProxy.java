@@ -2,7 +2,6 @@ package org.clevertec.vlad.v2.proxy;
 
 import org.clevertec.vlad.v2.smblib.cargo.CargoDeliverer;
 
-
 public class CargoDelivererProxy extends BaseDelivererProxy implements CargoDeliverer {
 
     private final CargoDeliverer cargoDeliverer;
@@ -36,9 +35,5 @@ public class CargoDelivererProxy extends BaseDelivererProxy implements CargoDeli
         } else {
             cargoDeliverer.deliverCargo();
         }
-    }
-
-    public CargoDeliverer getCargoDeliverer() {
-        return cargoDeliverer;
     }
 }

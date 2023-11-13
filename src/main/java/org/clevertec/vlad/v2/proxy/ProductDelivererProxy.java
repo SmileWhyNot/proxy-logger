@@ -45,8 +45,4 @@ public class ProductDelivererProxy extends BaseDelivererProxy implements Product
             productDeliverer.deliverOrder();
         }
     }
-
-    public ProductDeliverer getProductDeliverer() {
-        return productDeliverer;
-    }
 }

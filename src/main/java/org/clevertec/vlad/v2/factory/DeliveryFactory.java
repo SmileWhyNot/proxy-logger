@@ -7,6 +7,5 @@ import org.clevertec.vlad.v2.smblib.product.ProductDeliverer;
 public interface DeliveryFactory {
     CargoDeliverer createCargoDeliverer();
     ProductDeliverer createProductDeliverer();
-
     CabbieDeliverer createCabbieDeliverer();
 }

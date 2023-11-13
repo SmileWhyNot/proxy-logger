@@ -1,7 +1,6 @@
 package org.clevertec.vlad.v2.proxy;
 
 import org.clevertec.vlad.v2.smblib.cabbie.CabbieDeliverer;
-import org.clevertec.vlad.v2.smblib.cargo.CargoDeliverer;
 
 public class CabbieDelivererProxy extends BaseDelivererProxy implements CabbieDeliverer {
     private final CabbieDeliverer cabbieDeliverer;
@@ -45,9 +44,5 @@ public class CabbieDelivererProxy extends BaseDelivererProxy implements CabbieDe
         } else {
             cabbieDeliverer.deliverPassenger();
         }
-    }
-
-    public CabbieDeliverer getCabbieDeliverer() {
-        return cabbieDeliverer;
     }
 }

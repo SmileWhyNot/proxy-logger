@@ -1,38 +1,30 @@
 package org.clevertec.vlad.v2.factory;
 
-import org.clevertec.vlad.v2.proxy.CabbieDelivererProxy;
-import org.clevertec.vlad.v2.proxy.CargoDelivererProxy;
-import org.clevertec.vlad.v2.proxy.ProductDelivererProxy;
 import org.clevertec.vlad.v2.proxy.factory.DelivererProxyFactoryImpl;
 import org.clevertec.vlad.v2.proxy.factory.DeliveryProxyFactory;
 import org.clevertec.vlad.v2.smblib.cabbie.CabbieDeliverer;
-import org.clevertec.vlad.v2.smblib.cabbie.UberCabbieDeliverer;
 import org.clevertec.vlad.v2.smblib.cabbie.YandexCabbieDeliverer;
 import org.clevertec.vlad.v2.smblib.cargo.CargoDeliverer;
 import org.clevertec.vlad.v2.smblib.cargo.YandexCargoDeliverer;
 import org.clevertec.vlad.v2.smblib.product.ProductDeliverer;
-import org.clevertec.vlad.v2.smblib.product.UberProductDeliverer;
 import org.clevertec.vlad.v2.smblib.product.YandexProductDeliverer;
 
 public class YandexFactory implements DeliveryFactory{
     @Override
     public CargoDeliverer createCargoDeliverer() {
         DeliveryProxyFactory proxyFactory = new DelivererProxyFactoryImpl();
-        CargoDelivererProxy cargoDelivererProxy = proxyFactory.createCargoDelivererProxy(new YandexCargoDeliverer());
-        return new CargoDelivererProxy(cargoDelivererProxy.getCargoDeliverer());
+        return proxyFactory.createCargoDelivererProxy(new YandexCargoDeliverer());
     }
 
     @Override
     public ProductDeliverer createProductDeliverer() {
         DeliveryProxyFactory proxyFactory = new DelivererProxyFactoryImpl();
-        ProductDelivererProxy productDelivererProxy = proxyFactory.createProductDelivererProxy(new YandexProductDeliverer());
-        return new ProductDelivererProxy(productDelivererProxy.getProductDeliverer());
+        return proxyFactory.createProductDelivererProxy(new YandexProductDeliverer());
     }
 
     @Override
     public CabbieDeliverer createCabbieDeliverer() {
         DeliveryProxyFactory proxyFactory = new DelivererProxyFactoryImpl();
-        CabbieDelivererProxy cabbieDelivererProxy = proxyFactory.createCabbieDelivererProxy(new YandexCabbieDeliverer());
-        return new CabbieDelivererProxy(cabbieDelivererProxy.getCabbieDeliverer());
+        return proxyFactory.createCabbieDelivererProxy(new YandexCabbieDeliverer());
     }
 }

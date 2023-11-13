@@ -6,7 +6,7 @@ import java.util.*;
 public class LogHandler {
 
     private static LogHandler instance;
-    private Map<String, List<String>> annotatedMethods;
+    private final Map<String, List<String>> annotatedMethods;
 
     private LogHandler() {
         annotatedMethods = new HashMap<>();
@@ -29,7 +29,9 @@ public class LogHandler {
                     String interfaceName = i.getName();
                     String methodName = m.getName();
 
-                    annotatedMethods.computeIfAbsent(interfaceName, k -> new ArrayList<>()).add(methodName);
+                    if (!annotatedMethods.containsKey(interfaceName) || !annotatedMethods.get(interfaceName).contains(methodName)) {
+                        annotatedMethods.computeIfAbsent(interfaceName, k -> new ArrayList<>()).add(methodName);
+                    }
                 }
             }
         }
